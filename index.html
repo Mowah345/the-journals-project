@@ -3,37 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Write a Journal Entry</title>
-    <style>
-        textarea { width: 100%; height: 100px; }
-    </style>
+    <title>Faith-Based Relationship Journal</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <h1>Write Your Journal Entry</h1>
-    
-    <form id="journalForm">
-        <textarea id="journalEntry" placeholder="Write your journal entry here..." required></textarea>
-        <button type="submit">Save Entry</button>
-    </form>
+    <header>
+        <h1>Faith-Based Relationship Journal</h1>
+        <p>Navigate your relationships through a faith-based lens.</p>
+    </header>
 
-    <br>
-    <a href="entries.html"><button>View Saved Entries</button></a>
+    <main>
+        <section id="category-1">
+            <h2>Self-Discovery and Spiritual Growth</h2>
+            <p>Explore your personal relationship with God and your spiritual journey.</p>
+            <ul>
+                <li><a href="#" onclick="loadChapter(1)">Chapter 1: Understanding Your Identity in Christ</a></li>
+                <li><a href="#" onclick="loadChapter(2)">Chapter 2: Strengthening Your Prayer Life</a></li>
+                <li><a href="#" onclick="loadChapter(3)">Chapter 3: Overcoming Spiritual Battles</a></li>
+                <li><a href="#" onclick="loadChapter(4)">Chapter 4: Trusting God in Uncertainty</a></li>
+                <li><a href="#" onclick="loadChapter(5)">Chapter 5: Healing from Past Wounds</a></li>
+                <li><a href="#" onclick="loadChapter(6)">Chapter 6: Cultivating a Heart of Gratitude</a></li>
+                <li><a href="#" onclick="loadChapter(7)">Chapter 7: Growing in Faith and Obedience</a></li>
+            </ul>
+        </section>
 
-    <script>
-        document.getElementById("journalForm").addEventListener("submit", async function(event) {
-            event.preventDefault();
-            const entryText = document.getElementById("journalEntry").value;
-            if (!entryText.trim()) return;
+        <section id="category-2">
+            <h2>Building Christ-Centered Relationships</h2>
+            <p>Develop healthy, God-honoring relationships.</p>
+            <ul>
+                <li><a href="#" onclick="loadChapter(8)">Chapter 1: Biblical Foundations of Relationships</a></li>
+                <li><a href="#" onclick="loadChapter(9)">Chapter 2: Communication with Love and Truth</a></li>
+                <li><a href="#" onclick="loadChapter(10)">Chapter 3: Conflict Resolution Through Faith</a></li>
+                <li><a href="#" onclick="loadChapter(11)">Chapter 4: Setting Godly Boundaries</a></li>
+                <li><a href="#" onclick="loadChapter(12)">Chapter 5: God’s Design for Marriage and Courtship</a></li>
+                <li><a href="#" onclick="loadChapter(13)">Chapter 6: Serving Others with a Christ-like Heart</a></li>
+                <li><a href="#" onclick="loadChapter(14)">Chapter 7: Trusting God’s Timing in Relationships</a></li>
+                <li><a href="#" onclick="loadChapter(15)">Chapter 8: Strengthening Relationships Through Worship</a></li>
+                <li><a href="#" onclick="loadChapter(16)">Chapter 9: Dealing with Relationship Challenges Biblically</a></li>
+                <li><a href="#" onclick="loadChapter(17)">Chapter 10: Walking in Love and Forgiveness</a></li>
+            </ul>
+        </section>
 
-            await fetch("http://localhost:5000/save-entry", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ entry: entryText })
-            });
+        <section id="chapter-content" style="display: none;">
+            <h2 id="chapter-title"></h2>
+            <p id="chapter-description"></p>
+            <textarea id="journal-entry" placeholder="Write your thoughts here..."></textarea>
+            <button onclick="saveEntry()">Save Entry</button>
+        </section>
+    </main>
 
-            document.getElementById("journalEntry").value = "";
-            alert("Journal entry saved!");
-        });
-    </script>
+    <footer>
+        <p>&copy; 2025 Faith-Based Relationship Journal</p>
+    </footer>
 </body>
 </html>
