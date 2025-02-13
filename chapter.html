@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter - Faith-Based Journal</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script defer src="../js/script.js"></script>
+</head>
+<body>
+    <header>
+        <h1 id="chapter-title"></h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Scripture</h2>
+            <p id="chapter-scripture"></p>
+
+            <h2>Prayer</h2>
+            <p id="chapter-prayer"></p>
+
+            <h2>Reflection Questions</h2>
+            <div id="chapter-questions"></div>
+
+            <button onclick="saveEntry()">Save Entry</button>
+            <button onclick="loadSavedEntries()">View Saved Entries</button>
+
+            <h3>Previous Entries</h3>
+            <div id="saved-entries"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Faith-Based Relationship Journal</p>
+    </footer>
+</body>
+</html>

@@ -4,52 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faith-Based Relationship Journal</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
         <h1>Faith-Based Relationship Journal</h1>
-        <p>Navigate your relationships through a faith-based lens.</p>
+        <p>Introduction</p>
+        <p>This journal is designed to help you navigate relationships through a faith-based lens. Whether you're seeking personal growth or fostering a God-centered relationship, each section includes guided reflections, scriptures, and prompts to deepen your understanding and strengthen your walk with God. Each chapter concludes with a short prayer to help you center your thoughts and invite God into your journey.</p>
     </header>
 
     <main>
-        <section id="category-1">
+        <section>
             <h2>Self-Discovery and Spiritual Growth</h2>
-            <p>Explore your personal relationship with God and your spiritual journey.</p>
             <ul>
-                <li><a href="#" onclick="loadChapter(1)">Chapter 1: Understanding Your Identity in Christ</a></li>
-                <li><a href="#" onclick="loadChapter(2)">Chapter 2: Strengthening Your Prayer Life</a></li>
-                <li><a href="#" onclick="loadChapter(3)">Chapter 3: Overcoming Spiritual Battles</a></li>
-                <li><a href="#" onclick="loadChapter(4)">Chapter 4: Trusting God in Uncertainty</a></li>
-                <li><a href="#" onclick="loadChapter(5)">Chapter 5: Healing from Past Wounds</a></li>
-                <li><a href="#" onclick="loadChapter(6)">Chapter 6: Cultivating a Heart of Gratitude</a></li>
-                <li><a href="#" onclick="loadChapter(7)">Chapter 7: Growing in Faith and Obedience</a></li>
+                <li><a href="chapters/chapter.html?chapter=1">Chapter 1: Understanding Your Identity in Christ</a></li>
+                <li><a href="chapters/chapter.html?chapter=2">Chapter 2: Healing & Forgiveness</a></li>
+                <li><a href="chapters/chapter.html?chapter=3">Chapter 3: Overcoming Spiritual Battles</a></li>
+                <li><a href="chapters/chapter.html?chapter=4">Chapter 4: Trusting God in Uncertainty</a></li>
+                <li><a href="chapters/chapter.html?chapter=5">Chapter 5: The Power of Grace and Mercy</a></li>
+                <li><a href="chapters/chapter.html?chapter=6">Chapter 6: Overcoming Fear and Insecurity</a></li>
             </ul>
         </section>
 
-        <section id="category-2">
+        <section>
             <h2>Building Christ-Centered Relationships</h2>
-            <p>Develop healthy, God-honoring relationships.</p>
             <ul>
-                <li><a href="#" onclick="loadChapter(8)">Chapter 1: Biblical Foundations of Relationships</a></li>
-                <li><a href="#" onclick="loadChapter(9)">Chapter 2: Communication with Love and Truth</a></li>
-                <li><a href="#" onclick="loadChapter(10)">Chapter 3: Conflict Resolution Through Faith</a></li>
-                <li><a href="#" onclick="loadChapter(11)">Chapter 4: Setting Godly Boundaries</a></li>
-                <li><a href="#" onclick="loadChapter(12)">Chapter 5: God’s Design for Marriage and Courtship</a></li>
-                <li><a href="#" onclick="loadChapter(13)">Chapter 6: Serving Others with a Christ-like Heart</a></li>
-                <li><a href="#" onclick="loadChapter(14)">Chapter 7: Trusting God’s Timing in Relationships</a></li>
-                <li><a href="#" onclick="loadChapter(15)">Chapter 8: Strengthening Relationships Through Worship</a></li>
-                <li><a href="#" onclick="loadChapter(16)">Chapter 9: Dealing with Relationship Challenges Biblically</a></li>
-                <li><a href="#" onclick="loadChapter(17)">Chapter 10: Walking in Love and Forgiveness</a></li>
+                <li><a href="chapters/chapter.html?chapter=7">Chapter 1: Biblical Foundations of Relationships</a></li>
+                <li><a href="chapters/chapter.html?chapter=8">Chapter 2: Communication with Love and Truth</a></li>
+                <li><a href="chapters/chapter.html?chapter=9">Chapter 3: Conflict Resolution Through Faith</a></li>
+                <li><a href="chapters/chapter.html?chapter=10">Chapter 4: Setting Godly Boundaries</a></li>
+                <li><a href="chapters/chapter.html?chapter=11">Chapter 5: Prayer & Seeking God Together</a></li>
+                <li><a href="chapters/chapter.html?chapter=12">Chapter 6: God’s Timing & Patience</a></li>
+                <li><a href="chapters/chapter.html?chapter=13">Chapter 7: Serving and Sacrificial Love</a></li>
             </ul>
-        </section>
-
-        <section id="chapter-content" style="display: none;">
-            <h2 id="chapter-title"></h2>
-            <p id="chapter-description"></p>
-            <textarea id="journal-entry" placeholder="Write your thoughts here..."></textarea>
-            <button onclick="saveEntry()">Save Entry</button>
         </section>
     </main>
 
