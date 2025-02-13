@@ -3,23 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Journals Project</title>
+    <title>Write a Journal Entry</title>
     <style>
         textarea { width: 100%; height: 100px; }
-        .entry-container { border: 1px solid #ddd; padding: 10px; margin: 5px 0; }
-        button { margin: 5px; }
     </style>
 </head>
 <body>
-    <h1>The Journals Project</h1>
-
+    <h1>Write Your Journal Entry</h1>
+    
     <form id="journalForm">
         <textarea id="journalEntry" placeholder="Write your journal entry here..." required></textarea>
         <button type="submit">Save Entry</button>
     </form>
 
-    <h2>Your Journal Entries:</h2>
-    <div id="entries"></div>
+    <br>
+    <a href="entries.html"><button>View Saved Entries</button></a>
 
     <script>
         document.getElementById("journalForm").addEventListener("submit", async function(event) {
@@ -34,44 +32,8 @@
             });
 
             document.getElementById("journalEntry").value = "";
-            loadEntries();
+            alert("Journal entry saved!");
         });
-
-        async function loadEntries() {
-            const response = await fetch("http://localhost:5000/get-entries");
-            const entries = await response.json();
-            const entriesContainer = document.getElementById("entries");
-
-            entriesContainer.innerHTML = entries.map(e => `
-                <div class="entry-container" id="entry-${e.id}">
-                    <p>${e.entry}</p>
-                    <button onclick="editEntry(${e.id}, '${e.entry.replace(/'/g, "\\'")}')">Edit</button>
-                    <button onclick="deleteEntry(${e.id})">Delete</button>
-                </div>
-            `).join("");
-        }
-
-        async function editEntry(id, oldText) {
-            const newText = prompt("Edit your journal entry:", oldText);
-            if (newText === null || newText.trim() === "") return;
-
-            await fetch(`http://localhost:5000/edit-entry/${id}`, {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ entry: newText })
-            });
-
-            loadEntries();
-        }
-
-        async function deleteEntry(id) {
-            if (!confirm("Are you sure you want to delete this entry?")) return;
-
-            await fetch(`http://localhost:5000/delete-entry/${id}`, { method: "DELETE" });
-            loadEntries();
-        }
-
-        window.onload = loadEntries;
     </script>
 </body>
 </html>
