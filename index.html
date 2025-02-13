@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Journals Project</title>
+</head>
+<body>
+    <h1>The Journals Project</h1>
+    <form id="journalForm">
+        <textarea id="journalEntry" placeholder="Write your journal entry here..." required></textarea>
+        <button type="submit">Save Entry</button>
+    </form>
+    <h2>Your Journal Entries:</h2>
+    <div id="entries"></div>
+
+    <script>
+        document.getElementById("journalForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const entryText = document.getElementById("journalEntry").value;
+            if (!entryText.trim()) return;
+
+            await fetch("http://localhost:5000/save-entry", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ entry: entryText })
+            });
+
+            document.getElementById("journalEntry").value = "";
+            loadEntries();
+        });
+
+        async function loadEntries() {
+            const response = await fetch("http://localhost:5000/get-entries");
+            const entries = await response.json();
+            document.getElementById("entries").innerHTML = entries.map(e => `<p>${e.entry}</p>`).join("");
+        }
+
+        window.onload = loadEntries;
+    </script>
+</body>
+</html>
